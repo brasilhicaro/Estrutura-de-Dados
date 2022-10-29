@@ -14,7 +14,7 @@ public class BubbleSort {
                                         trocou = true;
                                 }
                         }
-                        //Aqui � feito a otimiza��o
+                        //Aqui é feito a otimização
                         if (!trocou) {
                                 break;
                         }
