@@ -7,7 +7,7 @@ import utilitarios.*;
 
 public class Main {
     public static void main(String[] args) {
-        long[] sequencia = GeradorDeSequencias.geradorCinco(1230000);
+        String[] sequencia = GeradorDeSequencias.geradorNove(10000);
         CalculaTempo calculaTempo = new CalculaTempo();
         long tempoInicial = System.nanoTime();
 
