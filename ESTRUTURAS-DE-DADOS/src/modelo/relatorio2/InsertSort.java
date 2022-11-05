@@ -10,7 +10,7 @@ public class InsertSort {
             for (int j = i - 1; j >= 0; j--) {
                 long valorAtual = vetor[j];
                 if (valorAtual > valorPosterior)
-                    TrocaElementos.trocarLong(vetor, j, i);
+                    TrocaElementos.trocar(vetor, j, i);
                 else
                     break;
             }
