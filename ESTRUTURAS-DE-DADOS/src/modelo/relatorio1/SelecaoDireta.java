@@ -19,7 +19,7 @@ public class SelecaoDireta {
 
     public static void selecaoDiretaString(String[] vetor) {
 
-        for (int j = 0; j < vetor.length; j++) {
+        for (int j = 1; j < vetor.length; j++) {
             int menor = j;
             for (int i = j + 1; i < vetor.length - 1; i++) {
                 if (vetor[j - 1].compareTo(vetor[j]) > 0) {
