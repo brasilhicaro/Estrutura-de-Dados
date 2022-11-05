@@ -7,90 +7,89 @@ public class GeradorDeSequencias {
 
 	public static long[] geradorUm(int t) {
 		long[] v = new long[t];
-		for(int i = 0; i < t; i++) {
-			v[i] = 100000000000000l + (long)(Math.random()*900000000000000l);
-		}
-		return v;
-	}
-	
-	public static  long[] geradorDois(int t) {
-		long[] v = new long[t];
-		for(int i = 0; i < t; i++) {
-			v[i] = 100 + (long)(Math.random()*900);
+		for (int i = 0; i < t; i++) {
+			v[i] = 100000000000000l + (long) (Math.random() * 900000000000000l);
 		}
 		return v;
 	}
 
-	public static  long[] geradorTres(int t) {
+	public static long[] geradorDois(int t) {
 		long[] v = new long[t];
-		for(int i = 0; i < t; i++) {
-			v[i] = (long)(Math.random()*1000);
+		for (int i = 0; i < t; i++) {
+			v[i] = 100 + (long) (Math.random() * 900);
+		}
+		return v;
+	}
+
+	public static long[] geradorTres(int t) {
+		long[] v = new long[t];
+		for (int i = 0; i < t; i++) {
+			v[i] = (long) (Math.random() * 1000);
 		}
 		Arrays.sort(v);
-		int f = (int) (t*0.1);
+		int f = (int) (t * 0.1);
 		while (f > 0) {
-			int i = (int)(Math.random()*t);
-			int j = (int)(Math.random()*t);
+			int i = (int) (Math.random() * t);
+			int j = (int) (Math.random() * t);
 			TrocaElementos.trocar(v, i, j);
 			f--;
 		}
-		
+
 		return v;
 	}
 
-	public static  long[] geradorQuatro(int t) {
+	public static long[] geradorQuatro(int t) {
 		long[] v = new long[t];
-		for(int i = 0; i < t; i++) {
-			v[i] = (long)(Math.random()*1000);
+		for (int i = 0; i < t; i++) {
+			v[i] = (long) (Math.random() * 1000);
 		}
 		Arrays.sort(v);
-		
-		for(int i = 0, j = (int)Math.ceil(t/2); i < t/2; i++, j++) {
+
+		for (int i = 0, j = (int) Math.ceil(t / 2); i < t / 2; i++, j++) {
 			TrocaElementos.trocar(v, i, j);
 		}
-		
+
 		return v;
 	}
-	
 
-	public static  long[] geradorCinco(int t) {
+	public static long[] geradorCinco(int t) {
 		long[] v = new long[t];
-		for(int i = 0; i < t; i++) {
-			v[i] = (long)(Math.random()*1000);
+		for (int i = 0; i < t; i++) {
+			v[i] = (long) (Math.random() * 1000);
 		}
 		Arrays.sort(v);
-		
-		for(int i = 0; i < t/2; i++) {
-			TrocaElementos.trocar(v, i, t-1-i);
+
+		for (int i = 0; i < t / 2; i++) {
+			TrocaElementos.trocar(v, i, t - 1 - i);
 		}
-		
+
 		return v;
 	}
-	
-	
-	public static  String[] geradorSeis(int t) {
+
+	public static String[] geradorSeis(int t) {
 		String[] v = new String[t];
-		
-		for(int i = 0; i < t; i++) {
+
+		for (int i = 0; i < t; i++) {
 			UUID uuid = UUID.randomUUID();
 			String myRandom = uuid.toString();
-			v[i] = myRandom.substring(0,20);		
+			v[i] = myRandom.substring(0, 20);
 		}
 		return v;
 	}
-	
-	public static  long[] geradorSete(int t) {
+
+	public static long[] geradorSete(int t) {
 		long[] v = new long[t];
-		for(int i = 0; i < t; i++) {
-			v[i] = (long)(Math.random()*2);
+		for (int i = 0; i < t; i++) {
+			v[i] = (long) (Math.random() * 2);
 		}
 		return v;
 	}
-	public static  long[] geradorOito(int t) {
+
+	public static long[] geradorOito(int t) {
 		long[] v = new long[t];
-		long[] l = {0, Long.MAX_VALUE/2, Long.MAX_VALUE,};
-		for(int i = 0; i < t; i++) {
-			v[i] = l[(int)(Math.random()*3)];
+		long[] l = { 0, Long.MAX_VALUE / 2, Long.MAX_VALUE, };
+		for (int i = 0; i < t; i++) {
+			v[i] = l[(int) (Math.random() * 3)];
 		}
 		return v;
 	}
@@ -98,24 +97,23 @@ public class GeradorDeSequencias {
 	public static String[] geradorNove(int t) {
 		String[] v = new String[t];
 
-		
-		for(int i = 0; i < t; i++) {
+		for (int i = 0; i < t; i++) {
 			UUID uuid = UUID.randomUUID();
 			String myRandom = uuid.toString();
-			v[i] = myRandom.substring(0,5);		
+			v[i] = myRandom.substring(0, 5);
 		}
 		Arrays.sort(v);
-		int f = (int) (t*0.1);
+		int f = (int) (t * 0.1);
 		while (f > 0) {
-			int i = (int)(Math.random()*t);
-			int j = (int)(Math.random()*t);
+			int i = (int) (Math.random() * t);
+			int j = (int) (Math.random() * t);
 			String aux = v[i];
-			v[i]=v[j];
+			v[i] = v[j];
 			v[j] = aux;
 			f--;
 		}
-		
+
 		return v;
 	}
-	
+
 }

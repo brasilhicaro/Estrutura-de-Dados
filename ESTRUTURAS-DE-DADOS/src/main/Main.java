@@ -2,7 +2,7 @@ package main;
 
 import java.util.Arrays;
 
-import modelo.BubbleSort;
+import modelo.relatorio1.*;
 import utilitarios.*;
 
 public class Main {

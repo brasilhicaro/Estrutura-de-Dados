@@ -1,4 +1,4 @@
-package modelo;
+package modelo.relatorio1;
 
 import utilitarios.TrocaElementos;
 
@@ -14,7 +14,7 @@ public class BubbleSort {
                                         trocou = true;
                                 }
                         }
-                        //Aqui é feito a otimização
+                        // Aqui é feito a otimização
                         if (!trocou) {
                                 break;
                         }
