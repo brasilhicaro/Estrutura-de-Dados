@@ -1,4 +1,4 @@
-package modelo;
+package modelo.relatorio1;
 
 public class QuickSort {
 
@@ -10,6 +10,7 @@ public class QuickSort {
 		if (fim > inicio) {
 			// Chamada da rotina que ira dividir o vetor em 3 partes.
 			int indexPivo = dividir(vetor, inicio, fim);
+			//int indexPivo = inicio;// primeiro elemento como pivô.
 			/*
 			 * Chamada recursiva para redivisao do vetor de elementos menores que o pivô.
 			 */
@@ -25,14 +26,14 @@ public class QuickSort {
 		String pivo;
 		int pontEsq, pontDir = fim;
 		pontEsq = inicio + 1;
-		pivo = vetor[inicio];
+		pivo = vetor[0];
 
 		while (pontEsq <= pontDir) {
 			/*
 			 * Vai correr o vetor ate que ultrapasse o outro ponteiro ou ate que o elemento
 			 * em questão seja menor que o pivô.
 			 */
-			while (pontEsq <= pontDir && vetor[pontEsq] <= pivo) {
+			while (pontEsq <= pontDir && vetor[pontEsq].compareTo(pivo) < 0) {
 				pontEsq++;
 			}
 
@@ -40,7 +41,7 @@ public class QuickSort {
 			 * Vai correr o vetor ate que ultrapasse o outro ponteiro que o elemento em
 			 * questão seja maior que o pivô.
 			 */
-			while (pontDir >= pontEsq && vetor[pontDir] > pivo) {
+			while (pontDir >= pontEsq && vetor[pontDir].compareTo(pivo) > 0) {
 				pontDir--;
 			}
 
