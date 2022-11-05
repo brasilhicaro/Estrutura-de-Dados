@@ -10,7 +10,7 @@ public class BubbleSort {
                         for (int j = 1; j < (tamanhoVetor - i); j++) {
                                 if (sequencia[j - 1].compareTo(sequencia[j]) > 0) {
                                         // troca elementos
-                                        TrocaElementos.trocar(sequencia, j - 1, j);
+                                        TrocaElementos.trocarString(sequencia, j - 1, j);
                                         trocou = true;
                                 }
                         }
