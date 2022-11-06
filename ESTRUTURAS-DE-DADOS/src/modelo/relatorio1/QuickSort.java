@@ -1,70 +1,64 @@
 package modelo.relatorio1;
 
+import java.util.Random;
+
+import utilitarios.TrocaElementos;
+
 public class QuickSort {
 
-	public void ordenarVetorDeInteiros(String[] vetor) {
-		quickSort(vetor, 0, vetor.length - 1);
-	}
-
-	private void quickSort(String[] vetor, int inicio, int fim) {
+	public static void quickSortOrdenar(String[] vetor, int inicio, int fim) {
 		if (fim > inicio) {
-			// Chamada da rotina que ira dividir o vetor em 3 partes.
-			int indexPivo = dividir(vetor, inicio, fim);
-			//int indexPivo = inicio;// primeiro elemento como pivô.
-			/*
-			 * Chamada recursiva para redivisao do vetor de elementos menores que o pivô.
-			 */
-			quickSort(vetor, inicio, indexPivo - 1);
-			/*
-			 * Chamada recursiva para redivisao do vetor de elementos maiores que o pivô.
-			 */
-			quickSort(vetor, indexPivo + 1, fim);
+			int indexPivo = inicio;// primeiro elemento como pivô.
+			
+			int esq = inicio;
+			int dir = fim;
+			
+			while(esq <= dir) {	
+				while(esq < fim && vetor[esq].compareTo(vetor[indexPivo]) <= 0) {	
+					esq++;	
+				}while(dir > inicio && vetor[dir].compareTo(vetor[indexPivo]) >= 0) {	
+					dir--;
+				}
+				if ( esq < dir) {
+					TrocaElementos.trocarString(vetor, esq, dir);
+					esq++;
+					dir--;
+				}	
+			}		
+			if(inicio < dir) {
+				quickSortOrdenar(vetor, inicio, dir);
+			}
+			if(esq < fim) {
+				quickSortOrdenar(vetor, esq, fim);
+			}		
 		}
 	}
-
-	private int dividir(String[] vetor, int inicio, int fim) {
-		String pivo;
-		int pontEsq, pontDir = fim;
-		pontEsq = inicio + 1;
-		pivo = vetor[0];
-
-		while (pontEsq <= pontDir) {
-			/*
-			 * Vai correr o vetor ate que ultrapasse o outro ponteiro ou ate que o elemento
-			 * em questão seja menor que o pivô.
-			 */
-			while (pontEsq <= pontDir && vetor[pontEsq].compareTo(pivo) < 0) {
-				pontEsq++;
+	
+	public static void quickSortOrdenarPivoAleatorio(String[] vetor, int inicio, int fim) {
+		
+		if (fim > inicio) {
+			int indexPivo = inicio + ((int) Math.random()*fim);      // Elemento aleatório como pivô.
+			int esq = inicio;
+			int dir = fim;
+			
+			while(esq <= dir) {	
+				while(esq < fim && vetor[esq].compareTo(vetor[indexPivo]) <= 0) {	
+					esq++;	
+				}while(dir > inicio && vetor[dir].compareTo(vetor[indexPivo]) >= 0) {	
+					dir--;
+				}
+				if ( esq < dir) {
+					TrocaElementos.trocarString(vetor, esq, dir);
+					esq++;
+					dir--;
+				}	
+			}		
+			if(inicio < dir) {
+				quickSortOrdenarPivoAleatorio(vetor, inicio, dir);
 			}
-
-			/*
-			 * Vai correr o vetor ate que ultrapasse o outro ponteiro que o elemento em
-			 * questão seja maior que o pivô.
-			 */
-			while (pontDir >= pontEsq && vetor[pontDir].compareTo(pivo) > 0) {
-				pontDir--;
-			}
-
-			/*
-			 * Caso os ponteiros ainda nao tenham se cruzado, significa que valores menores
-			 * e maiores que o pivô foram localizados em ambos os lados. Trocar estes
-			 * elementos de lado.
-			 */
-			if (pontEsq < pontDir) {
-				trocar(vetor, pontDir, pontEsq);
-				pontEsq++;
-				pontDir--;
-			}
+			if(esq < fim) {
+				quickSortOrdenarPivoAleatorio(vetor, esq, fim);
+			}		
 		}
-
-		trocar(vetor, inicio, pontDir);
-		return pontDir;
 	}
-
-	private void trocar(String[] vetor, int i, int j) {
-		String temp = vetor[i];
-		vetor[i] = vetor[j];
-		vetor[j] = temp;
-	}
-
 }
