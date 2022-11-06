@@ -20,7 +20,7 @@ public class SelecaoDireta {
         for (int j = 1; j < vetor.length; j++) {
             int menor = j;
             for (int i = j + 1; i < vetor.length - 1; i++) {
-                if (vetor[j - 1].compareTo(vetor[j]) > 0) {
+                if (vetor[j].compareTo(vetor[i]) > 0) {
                     menor = i;
                     TrocaElementos.trocarString(vetor, j, menor);
                 }
